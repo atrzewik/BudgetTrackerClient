@@ -1,0 +1,7 @@
+server:
+    port: 8090
+host: 127.0.0.1
+operation: getList
+param:
+    description: czereśnie
+    price: 10.2
