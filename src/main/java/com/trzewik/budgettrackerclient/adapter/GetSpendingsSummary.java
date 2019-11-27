@@ -34,7 +34,7 @@ class GetSpendingsSummary {
 
         LoggerFactory
                 .getLogger(GetSpendingsSummary.class)
-                .info(String.valueOf(Objects.requireNonNull(response.getBody()).getSummary()));
+                .info("{}", Objects.requireNonNull(response.getBody()).getSummary());
         return response;
     }
 }

@@ -32,9 +32,10 @@ class GetSpendings {
         HttpEntity<Object> entity = new HttpEntity<>(headers);
         ResponseEntity<SpendingDTO[]> response = restTemplate.exchange(url, HttpMethod.GET, entity, SpendingDTO[].class);
 
+        String spendings = Arrays.toString(response.getBody());
         LoggerFactory
                 .getLogger(GetSpendings.class)
-                .info(Arrays.toString(response.getBody()));
+                .info("{}", spendings);
 
         return response;
     }

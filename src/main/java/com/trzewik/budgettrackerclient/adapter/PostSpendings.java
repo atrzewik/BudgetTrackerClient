@@ -36,7 +36,7 @@ class PostSpendings {
 
         LoggerFactory
                 .getLogger(PostSpendings.class)
-                .info(String.valueOf(response.getStatusCode()));
+                .info("{}", response.getStatusCode());
         return response;
     }
 }
