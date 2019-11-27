@@ -22,20 +22,21 @@ class PostSpendings {
     @Value("${param.price}")
     private String price;
 
-    PostSpendings(@Value("${host}") String host, RestTemplate restTemplate) {
-        this.url = "http://" + host + ":8080/spendings";
+    PostSpendings(@Value("${host}") String host, @Value("${hostport}") int hostport, RestTemplate restTemplate) {
+        this.url = "http://" + host + ":" + hostport + "/spendings";
         this.restTemplate = restTemplate;
     }
 
-    void doRequest() {
+    ResponseEntity<String> doRequest() {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
 
         HttpEntity<Object> entity = new HttpEntity<>(new SpendingDTO(description, new BigDecimal(price)), headers);
         ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.POST, entity, String.class);
 
-        if (response != null) LoggerFactory
+        LoggerFactory
                 .getLogger(PostSpendings.class)
                 .info(String.valueOf(response.getStatusCode()));
+        return response;
     }
 }

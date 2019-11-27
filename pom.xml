@@ -35,6 +35,8 @@
         <version.sonar>3.7.0.1746</version.sonar>
         <version.javax.inject>1</version.javax.inject>
         <version.log4j>2.11.2</version.log4j>
+        <version.wiremock>2.25.1</version.wiremock>
+        <version.wiremock.junit5>1.3.1</version.wiremock.junit5>
 
         <sonar.coverage.jacoco.xmlReportPaths>target/site/jacoco/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
     </properties>
@@ -81,6 +83,22 @@
             <version>${version.junit.jupiter}</version>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>com.github.tomakehurst</groupId>
+            <artifactId>wiremock</artifactId>
+            <version>${version.wiremock}</version>
+            <scope>test</scope>
+        </dependency>
+
+
+        <dependency>
+            <groupId>ru.lanwen.wiremock</groupId>
+            <artifactId>wiremock-junit5</artifactId>
+            <version>${version.wiremock.junit5}</version>
+            <scope>test</scope>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -163,7 +181,7 @@
                                 <limits>
                                     <limit>
                                         <counter>METHOD</counter>
-                                        <minimum>0</minimum>
+                                        <minimum>0.7</minimum>
                                     </limit>
                                 </limits>
                             </rule>
@@ -171,7 +189,7 @@
                                 <limits>
                                     <limit>
                                         <counter>LINE</counter>
-                                        <minimum>0</minimum>
+                                        <minimum>0.7</minimum>
                                     </limit>
                                 </limits>
                             </rule>
