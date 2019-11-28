@@ -20,7 +20,9 @@ public enum Request {
         return Arrays.stream(values())
                 .filter(request -> request.value.equals(givenValue))
                 .findFirst()
-                .orElseThrow(IllegalArgumentException::new);
+                .orElseThrow(() -> {
+                    throw new NoRequestFoundException("Wrong request given!");
+                });
     }
 
 }

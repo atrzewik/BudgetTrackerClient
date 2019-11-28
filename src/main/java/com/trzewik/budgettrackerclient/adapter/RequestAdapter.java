@@ -1,5 +1,6 @@
 package com.trzewik.budgettrackerclient.adapter;
 
+import com.trzewik.budgettrackerclient.domain.NoRequestFoundException;
 import com.trzewik.budgettrackerclient.domain.Request;
 import com.trzewik.budgettrackerclient.domain.port.spi.RequestPort;
 import org.springframework.beans.factory.annotation.Value;
@@ -41,7 +42,7 @@ class RequestAdapter implements RequestPort {
                 postSpendings.doRequest();
                 break;
             default:
-                throw new IllegalArgumentException();
+                throw new NoRequestFoundException("Wrong request given!");
         }
     }
 }
