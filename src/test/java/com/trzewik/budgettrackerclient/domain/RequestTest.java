@@ -8,7 +8,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 /**
  * @author Agnieszka Trzewik
@@ -38,11 +38,10 @@ class RequestTest {
     void should_return_no_request_found_exception_when_wrong_request(String request) {
         //Given
         //When
-        NoRequestFoundException noRequestFoundException = assertThrows(NoRequestFoundException.class,
-                () ->
-                        Request.matchRequest(request));
         //Then
-        assertThat(noRequestFoundException.getMessage()).isEqualTo("Wrong request given!");
+        assertThatThrownBy(() -> Request.matchRequest(request))
+                .isExactlyInstanceOf(NoRequestFoundException.class)
+                .hasMessage("Wrong request given!");
     }
 
 }

@@ -173,7 +173,7 @@
                                 <limits>
                                     <limit>
                                         <counter>BRANCH</counter>
-                                        <minimum>0</minimum>
+                                        <minimum>0.7</minimum>
                                     </limit>
                                 </limits>
                             </rule>
