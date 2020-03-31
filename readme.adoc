@@ -4,7 +4,7 @@
 
 == Running
 
-- launch link:https://gitlab.com/atrzewik/budget-tracker-server[server]
+- launch link:https://github.com/atrzewik/budget-tracker-server[server]
 - mvn clean install
 - and:
     * java -jar target/budgettrackerclient-0.1.jar --operation=send --param.description=czereśnie --param.price=2
